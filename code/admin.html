@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.5/web3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <title>Admin</title>
+    <script>
+    </script>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="../images/logo2.jpg" width="100" height="50" class="d-inline-block align-top" alt=""> CROWD FUNDING
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index_completed.html">Home</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.html">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">About</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <br><br>
+
+    <div id="history">
+
+    </div>
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        FILL THE FOLLOWING
+                    </div>
+                    <div class="card-body">
+					<hr>
+                   <p>APPROVE REQUEST: <input id="Account" type="number"> </p>
+       
+                   <button type="button" class="btn btn-primary" onclick="approve()">TRANSACT</button>
+                   <p id ="approvererror"></p>
+
+				  <hr>
+				  
+				  <hr>
+
+        <label for="name" class="col-lg-2 control-label"><h6>Create Request</h6></label>
+		<p>Type : <input id="description" type="text"> </p>
+        <p>value : <input id="value" type="text"></p>
+		<p>recepient : <input id="recepient" type="text"></p>
+        <button type="button" class="btn btn-primary" onclick="transact()">TRANSACT</button>
+
+		<hr>
+		<hr>
+                   <p>FINALIZE REQUEST: <input id="final" type="number"> </p>
+       
+                   <button type="button" class="btn btn-primary" onclick="finalise()">TRANSACT</button>
+                   <p id ="finaliseerror"></p>
+				  <hr>
+				  <hr>
+                   <p>APPROVERS: <input id="recepient" type="text"> </p>
+       
+                   <button type="button" class="btn btn-primary" onclick="approvers()">ADD</button>
+				  <hr>
+		
+		
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        CHECK DETAILS
+                    </div>
+                    <div class="card-body">
+                  <div class="form-group row">
+				  <hr>
+                                <div class="col-sm-10">
+                                    <button type="button" class="btn btn-primary" onclick="approvalcnt()">APPROVER COUNT</button>
+                                    <h4 id="cnt"></h4>
+                                </div>
+                            </div>
+							<hr>
+							<hr>
+							
+							<div class="form-group row">
+                                <div class="col-sm-10">
+                                    <button type="button" class="btn btn-primary" onclick="reqcnt()">GET REQUEST COUNT</button>
+                                    <h4 id="rcnt"></h4>
+                                </div>
+                            </div><hr><hr>
+							<div class="form-group row">
+                                <div class="col-sm-10">
+                                    <button type="button" class="btn btn-primary" onclick="getSummary()">GET SUMMARY</button>
+
+                                    <h6 id="summary"></h6>
+                                </div>
+                            </div><hr><hr>
+							<div class="form-group row">
+                                <div class="col-sm-10">
+                                    <button type="button" class="btn btn-primary" onclick="getManager()">MANAGER</button>
+                                    <h4 id="manager"></h4>
+                                </div>
+                            </div><hr><hr>
+							<div class="form-group row">
+                                <div class="col-sm-10">
+                                    <button type="button" class="btn btn-primary" onclick="mincont()">MINIMUM COntibution</button>
+                                    <h4 id="mc"></h4>
+                                </div>
+                                <hr><hr>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-15">
+                                        <p>ENTER AMOUNT: <input id="contri" type="number"> </p>
+                                        <button type="button" class="btn btn-primary" style="background-color:rgb(255, 0, 0);"
+                                        
+                                        onclick="contribute()">CONTRIBUTE</button>
+                                        <p id ="contrierror"></p>
+                                    </div>
+                            </div><hr><hr>
+                            <p>Request: <input id="index1" type="number"> </p>
+       
+                   <button type="button" class="btn btn-primary" onclick="request()">TRANSACT</button>
+                   <p id ="index"></p>
+                       
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/get_adminId.js"></script> 
+    <script src="../solidity/abi.js"></script>
+    <script src="../js/scripts.js"></script> 
+    <script src="../js/get_contract.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+
+</html>
